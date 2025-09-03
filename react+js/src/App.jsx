@@ -56,7 +56,7 @@ const App = () => {
       <button onClick={handleClick}>Click me {count}</button>
       {person.name}
       {/* ARRAY AND SCALABILITY LEARNED */}
-      
+      {/* //HOLD */}
     </>
   )
 }
