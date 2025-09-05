@@ -17,11 +17,6 @@ const App = () => {
 
   const numbers = [1, 2, 3, 4, 5];
   const [count, setCount] = useState < number > (1);
-
-  console.log(count);  // 0
-  setCount(count + 1); // Request a re-render with 1
-  console.log(count);  // Still 0!
-
   const [person, setPerson] = useState({
     name: 'Niki de Saint Phalle',
     artwork: {
@@ -31,9 +26,6 @@ const App = () => {
     }
   });
   const handleClick = () => {
-    // setCount((prev) => prev +1)
-    // console.log("COUNT-----",count)
-
     setPerson(prev => ({
       ...prev,
       name: "Updated Name"
@@ -41,9 +33,6 @@ const App = () => {
   }
   return (
     <>
-      {/* Hello World */}
-      {/* Default Exports */}
-      {/* <Pink /> */}
       <Header />
       <MainContent />
       <Footer />
@@ -55,8 +44,6 @@ const App = () => {
       <Profile />
       <button onClick={handleClick}>Click me {count}</button>
       {person.name}
-      {/* ARRAY AND SCALABILITY LEARNED */}
-      {/* //HOLD */}
     </>
   )
 }
