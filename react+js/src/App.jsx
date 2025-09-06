@@ -43,7 +43,7 @@ const App = () => {
       })}
       <Profile />
       <button onClick={handleClick}>Click me {count}</button>
-      {person.name}
+      {/* {person.name} */}
     </>
   )
 }
