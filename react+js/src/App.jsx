@@ -33,9 +33,7 @@ const App = () => {
   }
   return (
     <>
-      <Header />
       <MainContent />
-      <Footer />
       {numbers.map((num) => {
         return (<Box key={num}>
           <Typography variant="h2">{num}</Typography>
@@ -43,6 +41,14 @@ const App = () => {
       })}
       <Profile />
       <button onClick={handleClick}>Click me {count}</button>
+      <Header />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
+      <Footer />
       
     </>
   )
