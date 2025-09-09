@@ -1,9 +1,5 @@
-import { Typography, Box } from "@mui/material";
-import { Footer } from "./components/Footer";
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import { useState } from "react";
-
+import { motion } from "motion/react"
+import ScrollTriggered from "./components/FramerComponents/Scroll";
 function Profile() {
   return (
     <img
@@ -14,44 +10,60 @@ function Profile() {
 }
 
 const App = () => {
-
-  const numbers = [1, 2, 3, 4, 5];
-  const [count, setCount] = useState < number > (1);
-  const [person, setPerson] = useState({
-    name: 'Niki de Saint Phalle',
-    artwork: {
-      title: 'Blue Nana',
-      city: 'Hamburg',
-      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-    }
-  });
-  const handleClick = () => {
-    setPerson(prev => ({
-      ...prev,
-      name: "Updated Name"
-    }));
-  }
   return (
     <>
-      <MainContent />
-      {numbers.map((num) => {
-        return (<Box key={num}>
-          <Typography variant="h2">{num}</Typography>
-        </Box>)
-      })}
-      <Profile />
-      <button onClick={handleClick}>Click me {count}</button>
-      <Header />
-      <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-      
+      <motion.div
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "#ff0088",
+          borderRadius: 5,
+          borderTop: '1px solid black'
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 10 }}
+      />
+
+      <motion.div
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "#dd00ee",
+          borderRadius: "50%"
+        }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 4,
+          scale: { type: "spring", visualDuration: 1, bounce: 0.2 },
+        }}
+      // style={ball}
+      />
+      <Gestures />
+      <ScrollTriggered />
     </>
   )
 }
 
 export default App;
+
+export function Gestures() {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.8 }}
+      style={box}
+    />
+  )
+}
+
+/**
+ * ==============   Styles   ================
+ */
+
+const box = {
+  width: 100,
+  height: 100,
+  backgroundColor: "#9911ff",
+  borderRadius: 5,
+}
