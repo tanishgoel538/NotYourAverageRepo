@@ -35,8 +35,8 @@ const App = () => {
         }}
       // style={ball}
       />
-      {/* <Gestures /> */}
-      {/* <ScrollTriggered /> */}
+      <Gestures />
+      <ScrollTriggered />
     </>
   )
 }
