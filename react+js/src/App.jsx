@@ -1,11 +1,11 @@
 import { motion } from "motion/react"
 import ScrollTriggered from "./components/FramerComponents/Scroll";
 import { useReducer } from "react";
-
+import { Button } from '@mui/material'
 
 const App = () => {
   const [tasks, dispatch] = useReducer(formReducer, initialTasks);
-  console.log("this is task",tasks)
+ 
   return (
     <>
       <motion.div
@@ -34,8 +34,9 @@ const App = () => {
           scale: { type: "spring", visualDuration: 1, bounce: 0.2 },
         }}
       // style={ball}
+
       />
-     
+     {/* PRSERVING STATE REACHED */}
     </>
   )
 }
@@ -64,8 +65,8 @@ const box = {
 }
 
 function formReducer(tasks, action) {
-  switch(action.type) {
-   case 'added': {
+  switch (action.type) {
+    case 'added': {
       return [...tasks, {
         id: action.id,
         text: action.text,
