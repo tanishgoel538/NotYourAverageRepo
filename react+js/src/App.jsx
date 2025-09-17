@@ -36,8 +36,8 @@ const App = () => {
       // style={ball}
 
       />
-     {/* PRSERVING STATE REACHED */} 
-     {/* todo */}
+     {/* SKIPPED CONTEXT AND REDCUER COMBINATION
+     REACHED ESCAPE HATCHES */}
     </>
   )
 }
