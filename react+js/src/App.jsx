@@ -36,8 +36,7 @@ const App = () => {
       // style={ball}
 
       />
-     {/* SKIPPED CONTEXT AND REDCUER COMBINATION
-     REACHED ESCAPE HATCHES */}
+
     </>
   )
 }
