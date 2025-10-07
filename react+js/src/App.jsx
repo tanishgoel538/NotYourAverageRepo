@@ -2,41 +2,24 @@ import { motion } from "motion/react"
 import ScrollTriggered from "./components/FramerComponents/Scroll";
 import { useReducer } from "react";
 import { Button } from '@mui/material'
+import { useRef } from 'react';
+import Stopwatch from "./components/StopWatch";
 
 const App = () => {
   const [tasks, dispatch] = useReducer(formReducer, initialTasks);
- 
+  const ref = useRef("Tango");
+  console.log("ref",ref);
+  function handleClick() {
+    ref.current = ref.current + 1;
+    alert('You clicked ' + ref.current + ' times!');
+  }
   return (
     <>
-      <motion.div
-        style={{
-          width: 100,
-          height: 100,
-          backgroundColor: "#ff0088",
-          borderRadius: 5,
-          borderTop: '1px solid black'
-        }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 10 }}
-      />
-
-      <motion.div
-        style={{
-          width: 100,
-          height: 100,
-          backgroundColor: "#dd00ee",
-          borderRadius: "50%"
-        }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 4,
-          scale: { type: "spring", visualDuration: 1, bounce: 0.2 },
-        }}
-      // style={ball}
-
-      />
-
+    Hello world
+    <button onClick={handleClick}>
+      Click me!
+    </button>
+    <Stopwatch />
     </>
   )
 }
@@ -67,11 +50,14 @@ const box = {
 function formReducer(tasks, action) {
   switch (action.type) {
     case 'added': {
-      return [...tasks, {
+      return [
+        ...tasks, 
+        {
         id: action.id,
         text: action.text,
         done: false
-      }];
+      }
+    ];
     }
     case 'changed': {
       return tasks.map(t => {
