@@ -1,18 +1,24 @@
 import { motion } from "motion/react"
 import ScrollTriggered from "./components/FramerComponents/Scroll";
-import { useReducer } from "react";
-import { Button } from '@mui/material'
+import { useEffect, useReducer } from "react";
+import { Button ,Box} from '@mui/material'
 import { useRef } from 'react';
 import Stopwatch from "./components/StopWatch";
 
 const App = () => {
   const [tasks, dispatch] = useReducer(formReducer, initialTasks);
   const ref = useRef("Tango");
-  console.log("ref",ref);
+  const divRef = useRef(null);
+
   function handleClick() {
     ref.current = ref.current + 1;
     alert('You clicked ' + ref.current + ' times!');
+  
   }
+   useEffect(() => {
+      if(divRef) console.log("ref",divRef?.current);
+
+  },[divRef])
   return (
     <>
     Hello world
@@ -20,6 +26,8 @@ const App = () => {
       Click me!
     </button>
     <Stopwatch />
+    <Box ref={divRef} sx={{width: 100, height: 100, background: 'red'}}>HEY</Box>
+
     </>
   )
 }

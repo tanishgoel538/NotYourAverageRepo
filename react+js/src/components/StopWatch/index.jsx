@@ -4,7 +4,7 @@ export default function Stopwatch() {
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
   const intervalRef = useRef(null);
-
+  const ref = useRef(null);
   function handleStart() {
     setStartTime(Date.now());
     setNow(Date.now());
